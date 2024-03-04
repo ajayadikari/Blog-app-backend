@@ -141,6 +141,7 @@ def unReportPost(request, username=None, postid=None):
 
 @api_view(['POST'])
 def subscribeAuthor(request, readername=None, authorname=None):
+    print("testing pipeline on code commits")
     authorAcc = AccountModel.objects.get(username=authorname)
     author = AuthorModel.objects.get(account=authorAcc)
     readerIns = AccountModel.objects.get(username=readername)
