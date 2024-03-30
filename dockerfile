@@ -5,7 +5,7 @@ WORKDIR /app
 
 # Copy requirements and project files
 COPY requirements.txt /app/
-COPY base /app/
+COPY . /app/
 
 # Install Python and Django dependencies
 RUN apt-get update && \ 
