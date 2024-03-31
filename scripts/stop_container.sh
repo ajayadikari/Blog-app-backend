@@ -1,2 +1,2 @@
-set -e 
-echo "hi"
+set -e
+echo "stop container"

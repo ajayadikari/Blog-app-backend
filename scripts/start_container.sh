@@ -1,5 +1,2 @@
-set -e
-
-docker pull ajayadikari/blogapp-backend
-
-docker run -d -p 8000:8000 ajayadikari/blogapp-backend
+docker pull ajayadikari/blog-app-backend
+docker run -d -p 8000:8000 ajayadikari/blog-app-backend
