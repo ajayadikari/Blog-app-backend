@@ -5,7 +5,7 @@ WORKDIR /app
 
 # Copy requirements and project files
 COPY requirements.txt /app/
-COPY base /app/
+COPY . /app/
 
 # Install Python and Django dependencies
 RUN apt-get update && \ 
@@ -20,4 +20,4 @@ EXPOSE 8000
 # Set environment variables (optional)
 # ENV DJANGO_SETTINGS_MODULE=myproject.settings
 # Command to run the application
-CMD ["python3", "base/manage.py", "runserver", "0.0.0.0:8000"]
+CMD ["python3", "manage.py", "runserver", "0.0.0.0:8000"]
