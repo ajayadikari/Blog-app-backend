@@ -4,13 +4,14 @@ FROM python:latest
 WORKDIR /app
 
 # Copy project files and install dependencies
+COPY requirements.txt .
+
+RUN pip install -r requirements.txt
+
 COPY . .
 
 # Install Python, pip, and Django dependencies
-RUN apt-get update && \
-    apt-get install -y python3 python3-pip && \
-    pip3 install --no-cache-dir -r requirements.txt && \
-    pip3 install --no-cache-dir django
+RUN apt-get update
 
 # Expose port
 EXPOSE 8000
