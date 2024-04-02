@@ -4,7 +4,7 @@ FROM ubuntu:latest
 WORKDIR /app
 
 # Copy project files and install dependencies
-COPY . /app/
+COPY . .
 
 # Install Python, pip, and Django dependencies
 RUN apt-get update && \
