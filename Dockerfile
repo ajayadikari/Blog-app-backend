@@ -10,9 +10,6 @@ RUN pip install -r requirements.txt
 
 COPY . .
 
-# Install Python, pip, and Django dependencies
-RUN apt-get update
-
 # Expose port
 EXPOSE 8000
 
@@ -20,4 +17,4 @@ EXPOSE 8000
 # ENV DJANGO_SETTINGS_MODULE=myproject.settings
 
 # Command to run the application
-CMD ["python3", "manage.py", "runserver", "0.0.0.0:8000"]
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
