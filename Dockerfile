@@ -1,20 +1,18 @@
 # Use a lightweight base image
-FROM python:3.x-slim
+FROM ubuntu:latest
 
 # Set the working directory inside the container
 WORKDIR /app
 
 # Copy the requirements file and install dependencies
-COPY requirements.txt .
+COPY requirements.txt /app/
 
 # Install system dependencies
 RUN apt-get update && \
-    apt-get install -y libpq-dev && \
-    pip install --no-cache-dir --upgrade pip setuptools && \
     pip install --no-cache-dir -r requirements.txt
 
 # Copy the application code into the container
-COPY . .
+COPY . /app/
 
 # Expose the port the Django application will be listening on
 EXPOSE 8000
