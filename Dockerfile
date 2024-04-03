@@ -3,7 +3,7 @@ FROM python:latest
 WORKDIR /app
 
 # Copy requirements and project files
-# COPY requirements.txt /app/
+COPY requirements.txt /app/
 COPY . /app/
 
 # Install Python and Django dependencies
