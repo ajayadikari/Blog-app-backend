@@ -9,14 +9,14 @@ RUN apt-get update && \
     apt-get install -y python3-pip
 
 # Copy the requirements file and install dependencies
-COPY requirements.txt .
+COPY requirements.txt /app/
 
 # Install Python dependencies
 RUN pip3 install --no-cache-dir --upgrade pip setuptools && \
     pip3 install --no-cache-dir -r requirements.txt
 
 # Copy the application code into the container
-COPY . .
+COPY . /app/
 
 # Expose the port the Django application will be listening on
 EXPOSE 8000
