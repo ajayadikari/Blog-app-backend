@@ -1,4 +1,4 @@
-FROM python3:latest
+FROM python:latest
 # Set working directory
 WORKDIR /app
 
