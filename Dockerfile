@@ -1,26 +1,21 @@
-# Use a lightweight base image
 FROM ubuntu:latest
 
-# Set the working directory inside the container
+# Update package lists and install Python 3 and pip
+RUN apt-get update && \
+    apt-get install -y python3 python3-pip && \
+    apt-get clean
+
+# Set the working directory in the container
 WORKDIR /app
 
-# Install pip
-RUN apt-get update && \
-    apt-get install -y python3-pip
-
-# Copy the requirements file and install dependencies
-COPY requirements.txt /app/
+# Copy the requirements file
+COPY requirements.txt .
 
 # Install Python dependencies
-RUN pip3 install --no-cache-dir --upgrade pip setuptools && \
-    pip3 install --no-cache-dir -r requirements.txt
+RUN pip3 install --no-cache-dir -r requirements.txt
 
-# Copy the application code into the container
-COPY . /app/
+# Copy the application code
+COPY . /app
 
-# Expose the port the Django application will be listening on
-EXPOSE 8000
-
-# Set environment variables, if necessary
-# ENV MY_ENV_VAR=value
+# Set the default command to run your application
 CMD ["python3", "manage.py", "runserver", "0.0.0.0:8000"]
